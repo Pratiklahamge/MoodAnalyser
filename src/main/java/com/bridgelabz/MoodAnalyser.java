@@ -1,9 +1,8 @@
 package com.bridgelabz;
 /**
  * name:pratik 
- * Purpose  -  I am in Sad Mood” message in Constructor Should Return Sad
+ * Purpose  -Handle Exception if User Provides Invalid Mood
  */
-
 public class MoodAnalyser {
 	public static String message;
 
@@ -23,14 +22,15 @@ public class MoodAnalyser {
 		this.message = message;
 	}
 
-	public String analyseMood() {
-
-		if (message.toLowerCase().contains("sad")) {
-			return "Sad";
-		} else if (message.toLowerCase().contains("happy")) {
+	public static String analyseMood() {
+		try {
+			if (message.toLowerCase().contains("sad")) {
+				return "Sad";
+			} else {
+				return "Happy";
+			}
+		} catch (NullPointerException e) {
+			return "Exception Handled";
 		}
-		return "Happy";
 	}
-
 }
-
